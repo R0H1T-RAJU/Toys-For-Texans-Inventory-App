@@ -20,8 +20,10 @@
 		8788B63A2AC4A121008F187A /* MainPageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8788B6392AC4A121008F187A /* MainPageHandler.swift */; };
 		879C3EA72AF2FAFE00F06E37 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C3EA62AF2FAFE00F06E37 /* TransactionsView.swift */; };
 		879C3EA92AF323CB00F06E37 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C3EA82AF323CB00F06E37 /* TransactionView.swift */; };
+		87A7BF352AFC0A250024365B /* DonationBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7BF342AFC0A250024365B /* DonationBoxView.swift */; };
 		87C403A92AD5FE16000E829D /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C403A82AD5FE16000E829D /* ItemsView.swift */; };
 		87C403AB2AD6093B000E829D /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C403AA2AD6093B000E829D /* ItemView.swift */; };
+		87C7DB292AFE9A44007402DA /* CreateBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7DB282AFE9A44007402DA /* CreateBox.swift */; };
 		87CCC0EF2AF35B6500E88E92 /* BarcodeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCC0EE2AF35B6500E88E92 /* BarcodeAPI.swift */; };
 		87D0DBD82AC2764700F0A9AD /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0DBD72AC2764700F0A9AD /* Register.swift */; };
 		87DD80BA2AC7362C00FE8CCE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80B92AC7362C00FE8CCE /* FirebaseAnalytics */; };
@@ -30,6 +32,7 @@
 		87DD80C02AC7362C00FE8CCE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80BF2AC7362C00FE8CCE /* FirebaseFirestore */; };
 		87DD80C22AC7362C00FE8CCE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80C12AC7362C00FE8CCE /* FirebaseStorage */; };
 		87DD80C52AC736E900FE8CCE /* FirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DD80C42AC736E900FE8CCE /* FirebaseFunctions.swift */; };
+		87E608722AFBED8B009DCEDB /* DonationBoxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E608712AFBED8B009DCEDB /* DonationBoxesView.swift */; };
 		87F08BD12ACA3A2700B1395D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F08BD02ACA3A2600B1395D /* AppDelegate.swift */; };
 		87F08BD32ACA40DF00B1395D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F08BD22ACA40DF00B1395D /* ProfileView.swift */; };
 		87F08BD72ACA7DCA00B1395D /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F08BD62ACA7DCA00B1395D /* DatabaseObjects.swift */; };
@@ -50,12 +53,15 @@
 		8788B6392AC4A121008F187A /* MainPageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageHandler.swift; sourceTree = "<group>"; };
 		879C3EA62AF2FAFE00F06E37 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		879C3EA82AF323CB00F06E37 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		87A7BF342AFC0A250024365B /* DonationBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationBoxView.swift; sourceTree = "<group>"; };
 		87C403A82AD5FE16000E829D /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		87C403AA2AD6093B000E829D /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		87C7DB282AFE9A44007402DA /* CreateBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBox.swift; sourceTree = "<group>"; };
 		87CCC0EE2AF35B6500E88E92 /* BarcodeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeAPI.swift; sourceTree = "<group>"; };
 		87D0DBD72AC2764700F0A9AD /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		87DD80812AC72AE000FE8CCE /* Toys-Handler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Toys-Handler-Info.plist"; sourceTree = SOURCE_ROOT; };
 		87DD80C42AC736E900FE8CCE /* FirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctions.swift; sourceTree = "<group>"; };
+		87E608712AFBED8B009DCEDB /* DonationBoxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationBoxesView.swift; sourceTree = "<group>"; };
 		87F08BD02ACA3A2600B1395D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87F08BD22ACA40DF00B1395D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		87F08BD62ACA7DCA00B1395D /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
@@ -134,9 +140,12 @@
 			children = (
 				8788B6392AC4A121008F187A /* MainPageHandler.swift */,
 				87F08BD22ACA40DF00B1395D /* ProfileView.swift */,
+				87E608712AFBED8B009DCEDB /* DonationBoxesView.swift */,
+				87A7BF342AFC0A250024365B /* DonationBoxView.swift */,
 				87C403A82AD5FE16000E829D /* ItemsView.swift */,
 				87C403AA2AD6093B000E829D /* ItemView.swift */,
 				8701E59B2AD76A5900B1EC92 /* CreatePopup.swift */,
+				87C7DB282AFE9A44007402DA /* CreateBox.swift */,
 				879C3EA62AF2FAFE00F06E37 /* TransactionsView.swift */,
 				879C3EA82AF323CB00F06E37 /* TransactionView.swift */,
 			);
@@ -247,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A7BF352AFC0A250024365B /* DonationBoxView.swift in Sources */,
 				87D0DBD82AC2764700F0A9AD /* Register.swift in Sources */,
 				876F69162AC26F3400E7CB01 /* Login.swift in Sources */,
 				879C3EA92AF323CB00F06E37 /* TransactionView.swift in Sources */,
@@ -257,6 +267,8 @@
 				87CCC0EF2AF35B6500E88E92 /* BarcodeAPI.swift in Sources */,
 				8788B63A2AC4A121008F187A /* MainPageHandler.swift in Sources */,
 				87C403A92AD5FE16000E829D /* ItemsView.swift in Sources */,
+				87C7DB292AFE9A44007402DA /* CreateBox.swift in Sources */,
+				87E608722AFBED8B009DCEDB /* DonationBoxesView.swift in Sources */,
 				87F08BD12ACA3A2700B1395D /* AppDelegate.swift in Sources */,
 				875E87862AF32F8600A1638F /* UserAuth.swift in Sources */,
 				87DD80C52AC736E900FE8CCE /* FirebaseFunctions.swift in Sources */,
@@ -414,12 +426,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toysfortexans.Toys-Handler";
 				PRODUCT_NAME = "Toys For Texans";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,12 +463,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toysfortexans.Toys-Handler";
 				PRODUCT_NAME = "Toys For Texans";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

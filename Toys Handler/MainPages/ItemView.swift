@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ItemView: View {
     @ObservedObject var itemsHandler: SuperItemsHandler = .standard
+    @ObservedObject var boxesHandler: DonationBoxesHandler = .standard
+    
     @State var index: Int
+    let currentDonationBoxId: String
     
     @Environment(\.editMode) private var editMode
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    private let numberFormatter: NumberFormatter = NumberFormatter()
-
-    var body: some View {        
+    var body: some View {
         NavigationStack {
             List {
                 Section(header: Text("Item Details")) {
@@ -31,47 +32,40 @@ struct ItemView: View {
                     
                     HStack {
                         Text("Quantity Available")
-                        TextField("", value: $itemsHandler.items[index].QuantityAvailable, formatter: NumberFormatter())
+                        TextField("", text: $itemsHandler.items[index].QuantityAvailable)
                             .disabled(disableTextField)
                             .foregroundStyle(inputColor)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
                     }
                     
-//                    if(disableTextField) {
-//                        HStack {
-//                            Text("Quantity Available")
-//                            Spacer()
-//                            Text("\(itemsHandler.items[index].QuantityAvailable)")
-//                                .foregroundStyle(Color.gray)
-//                        }
-//                    } else {
-//                        Picker("Quantity Available", selection: $itemsHandler.items[index].QuantityAvailable) {
-//                            ForEach(0..<100, id:\.self) {
-//                                Text("\($0)")
-//                            }
-//                        }
-//                        .tint(Color("TextColor"))
-//                    }
-                }
-                
-                Section(header: Text("Request Details")) {
-                    HStack {
-                        Text("Quantity Reserved")
-                        Spacer()
-                        Text("\(itemsHandler.items[index].QuantityReserved)")
-                            .foregroundStyle(Color.gray)
-                    }
-                    HStack {
-                        Text("Quantity Given")
-                        Spacer()
-                        Text("\(itemsHandler.items[index].QuantityGiven)")
-                            .foregroundStyle(Color.gray)
+                    if(disableTextField) {
+                        HStack {
+                            Text("Donation Box")
+                            Spacer()
+                            Text("\(itemsHandler.items[index].DonationBoxName)")
+                                .foregroundStyle(Color.gray)
+                        }
+                    } else {
+                        Picker("Donation Box", selection: $itemsHandler.items[index].DonationBoxId) {
+                            ForEach(boxesHandler.donationBoxes, id:\.id) {donationBox in
+                                Text("\(donationBox.Name)")
+                            }
+                        }
+                        .tint(Color("TextColor"))
+                        .onChange(of: itemsHandler.items[index].DonationBoxId) {newId in
+                            let item = itemsHandler.items[index]
+                            let totalPrice = Double(item.QuantityAvailable)! * Double(item.Price)!
+                            FirebaseFunctions().incrBoxTotalPrice(boxId: currentDonationBoxId, price: -totalPrice)
+                            FirebaseFunctions().incrBoxTotalPrice(boxId: newId, price: totalPrice)
+                            itemsHandler.items[index].DonationBoxName = boxesHandler.donationBoxes.first{$0.id == newId}!.Name
+                        }
                     }
                 }
             }
         }
         .onDisappear(perform: {
+            if(itemsHandler.items[index].QuantityAvailable == "") {itemsHandler.items[index].QuantityAvailable = "0"}
             if !(itemsHandler.items[index] == itemsHandler.staticItems[index]) {
                 itemsHandler.updateItem(index: index)
             }

@@ -44,6 +44,15 @@ struct ProfileView: View {
                     }
                 }
             }
+        } else {
+            Section("Account") {
+                Button {
+                    viewModel.signOut()
+                } label: {
+                    Text("Sign Out")
+                        .tint(.red)
+                }
+            }
         }
     }
 }

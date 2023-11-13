@@ -14,12 +14,15 @@ struct CreatePopup: View {
     @State var name = ""
     @State var price = ""
     @State var quantity = ""    
+    let donationBox: DonationBox
     
     @State private var showActionSheet = false
     @State private var isShowingPopup = false
     @State private var isPresentingScanner = false
     
+    @ObservedObject var itemsHandler: SuperItemsHandler = .standard
     @State var scannedCode: String?
+    let firebaseFunctions = FirebaseFunctions()
     
     
     var body: some View {
@@ -71,13 +74,19 @@ struct CreatePopup: View {
                 
                 Button("Create", role: .cancel) {
                     Task {
-                        if price == "" {price = "0.00"}
                         if quantity == "" {quantity = "1"}
-                        let newItem = NewItem(Name: name, Price: price, QuantityAvailable: Int(quantity) ?? 0)
-                        clearVariables()
-                        FirebaseFunctions().addItem(item: newItem)
-                        SuperItemsHandler.standard.items = try! await FirebaseFunctions().getItems()
+                        if price == "" {price = "0.00"}
+                        if (itemsHandler.items.contains{$0.Name.lowercased() == name.lowercased()}) {
+                            let duplicateItem = itemsHandler.items.first{$0.Name == name}
+                            firebaseFunctions.incrQuantityAvailable(id: duplicateItem!.id, amount: Int(quantity)!)
+                        }
+                        else {
+                            let newItem = NewItem(Name: name, Price: price, QuantityAvailable: Int(quantity) ?? 1, DonationBoxName: donationBox.Name, DonationBoxId: donationBox.id)
+                            firebaseFunctions.addItem(item: newItem)
+                        }
+                        SuperItemsHandler.standard.items = try! await firebaseFunctions.getItems()
                         SuperItemsHandler.standard.staticItems = SuperItemsHandler.standard.items
+                        clearVariables()
                     }
                 }
             }
@@ -91,6 +100,6 @@ struct CreatePopup: View {
     }
 }
 
-#Preview {
-    CreatePopup()
-}
+//#Preview {
+//    CreatePopup()
+//}

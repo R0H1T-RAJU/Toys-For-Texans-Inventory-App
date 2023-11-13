@@ -18,9 +18,9 @@ struct ItemsView: View {
     var body: some View {
         NavigationStack {
             List {
-                CreatePopup()
+//                CreatePopup()
                 ForEach(filteredItems, id: \.id) {item in
-                    NavigationLink(destination: ItemView(index: itemsHandler.items.firstIndex(of: item)!))
+                    NavigationLink(destination: ItemView(index: itemsHandler.items.firstIndex(of: item)!, currentDonationBoxId: item.DonationBoxId))
                     {
                         HStack {
                             Text(item.Name)
@@ -28,11 +28,19 @@ struct ItemsView: View {
                             Text(String(item.QuantityAvailable))
                         }
                     }
-                } .onDelete(perform: itemsHandler.removeItem)
+                } .onDelete {indexSet in
+                    let itemIndex = itemsHandler.items.firstIndex(of: filteredItems[indexSet.first!])
+                    itemsHandler.removeItem(at: itemIndex!)
+                }
             }
             .navigationTitle(Text("Inventory"))
             .toolbar{EditButton()}
             .searchable(text: $searchTerm)
+            .refreshable {
+                do {
+                    itemsHandler.items = try! await FirebaseFunctions().getItems()
+                }
+            }
         }
     }
 

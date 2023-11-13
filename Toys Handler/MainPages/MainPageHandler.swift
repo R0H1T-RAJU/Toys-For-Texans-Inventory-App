@@ -19,21 +19,29 @@ struct MainPageHandler: View {
                     .tabItem {
                         Label("Inventory", systemImage: "house.fill")
                     }
+                DonationBoxesView()
+                    .tabItem {
+                        Label("Donation Boxes", systemImage: "archivebox.fill")
+                    }
+                Text("")
+                    .tabItem {
+                        Label("Requests", systemImage: "list.clipboard.fill")
+                    }
                 TransactionsView()
                     .tabItem {
                         Label("Transactions", systemImage: "chart.bar.doc.horizontal.fill")
                     }
-                ProfileView()
-                    .tabItem {
-                        Label("Account", systemImage: "person.circle.fill")
-                    }
+                
+//                ProfileView()
+//                    .tabItem {
+//                        Label("Account", systemImage: "person.circle.fill")
+//                    }
             }
         } .navigationBarHidden(true)
             .task {
-                let itemList = try! await FirebaseFunctions().getItems()
-                TransactionsHandler.standard.transactions = try! await FirebaseFunctions().getTranscations()
-                SuperItemsHandler.standard.items = itemList
-                SuperItemsHandler.standard.staticItems = itemList
+                try! await SuperItemsHandler.standard.getItems()
+                try! await DonationBoxesHandler.standard.getBoxes()
+                try! await TransactionsHandler.standard.getTransactions()
             }
     }
 }
