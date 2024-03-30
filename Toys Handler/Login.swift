@@ -15,9 +15,9 @@ struct Login: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("tft-logo")
-                    .resizable()
-                    .frame(width: 200, height: 200)
+//                Image("tft-logo")
+//                    .resizable()
+//                    .frame(width: 200, height: 200)
                     
                     
                 Text("Login")

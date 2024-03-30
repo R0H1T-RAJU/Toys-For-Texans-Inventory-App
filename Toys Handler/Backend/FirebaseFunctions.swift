@@ -216,6 +216,4 @@ final class FirebaseFunctions {
         createTransaction(type: .removeDonationBox, donationBox: donationBox)
         print("box removed")
     }
-    
-    
 }
