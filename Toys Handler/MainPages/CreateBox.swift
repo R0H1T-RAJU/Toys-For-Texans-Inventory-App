@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CreateBox: View {
     @State var showPopup = false
@@ -14,7 +15,7 @@ struct CreateBox: View {
     let firebaseFunctions = FirebaseFunctions()
     
     @ObservedObject var boxesHandler: DonationBoxesHandler = .standard
-    
+
     var body: some View {
         Button {
             showPopup = true
@@ -30,9 +31,12 @@ struct CreateBox: View {
             Button("Cancel", role: .destructive) {clearVariables()}
             Button("Create", role: .cancel) {
                 Task {
-                    firebaseFunctions.createDonationBox(donationBox: NewDonationBox(Name: name, Date: date))
-                    boxesHandler.donationBoxes = try! await firebaseFunctions.getDonationBoxes()
-                    boxesHandler.staticDonationBoxes = boxesHandler.donationBoxes
+                    let nameValidation = name.rangeOfCharacter(from: NSCharacterSet.letters)
+                    if (nameValidation != nil) {
+                        firebaseFunctions.createDonationBox(donationBox: NewDonationBox(Name: name, Date: date))
+                        boxesHandler.donationBoxes = try! await firebaseFunctions.getDonationBoxes()
+                        boxesHandler.staticDonationBoxes = boxesHandler.donationBoxes
+                    }
                     clearVariables()
                 }
             }

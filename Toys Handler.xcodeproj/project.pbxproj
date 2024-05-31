@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8701E59C2AD76A5900B1EC92 /* CreatePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701E59B2AD76A5900B1EC92 /* CreatePopup.swift */; };
+		872570C02C096F10008694C1 /* GeneralFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872570BF2C096F10008694C1 /* GeneralFunctions.swift */; };
 		874D29202ACDBD96003BFDB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 874D291F2ACDBD96003BFDB1 /* GoogleService-Info.plist */; };
 		875141B12AF334FF00917323 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875141B02AF334FF00917323 /* ContentView.swift */; };
 		875141B32AF33E1500917323 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875141B22AF33E1500917323 /* User.swift */; };
@@ -26,8 +27,6 @@
 		87C7DB292AFE9A44007402DA /* CreateBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7DB282AFE9A44007402DA /* CreateBox.swift */; };
 		87CCC0EF2AF35B6500E88E92 /* BarcodeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCC0EE2AF35B6500E88E92 /* BarcodeAPI.swift */; };
 		87D0DBD82AC2764700F0A9AD /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0DBD72AC2764700F0A9AD /* Register.swift */; };
-		87DD80BA2AC7362C00FE8CCE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80B92AC7362C00FE8CCE /* FirebaseAnalytics */; };
-		87DD80BC2AC7362C00FE8CCE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80BB2AC7362C00FE8CCE /* FirebaseAnalyticsSwift */; };
 		87DD80BE2AC7362C00FE8CCE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80BD2AC7362C00FE8CCE /* FirebaseAuth */; };
 		87DD80C02AC7362C00FE8CCE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80BF2AC7362C00FE8CCE /* FirebaseFirestore */; };
 		87DD80C22AC7362C00FE8CCE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 87DD80C12AC7362C00FE8CCE /* FirebaseStorage */; };
@@ -41,9 +40,11 @@
 
 /* Begin PBXFileReference section */
 		8701E59B2AD76A5900B1EC92 /* CreatePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePopup.swift; sourceTree = "<group>"; };
+		872570BF2C096F10008694C1 /* GeneralFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralFunctions.swift; sourceTree = "<group>"; };
 		874D291F2ACDBD96003BFDB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		875141B02AF334FF00917323 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		875141B22AF33E1500917323 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8759D0EC2BFFFE32002F510C /* Toys-Handler-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Toys-Handler-Info.plist"; sourceTree = "<group>"; };
 		875E87852AF32F8600A1638F /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		876F69102AC26F3400E7CB01 /* Toys For Texans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toys For Texans.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		876F69132AC26F3400E7CB01 /* Toys_HandlerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toys_HandlerApp.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		87C7DB282AFE9A44007402DA /* CreateBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBox.swift; sourceTree = "<group>"; };
 		87CCC0EE2AF35B6500E88E92 /* BarcodeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeAPI.swift; sourceTree = "<group>"; };
 		87D0DBD72AC2764700F0A9AD /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		87DD80812AC72AE000FE8CCE /* Toys-Handler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Toys-Handler-Info.plist"; sourceTree = SOURCE_ROOT; };
 		87DD80C42AC736E900FE8CCE /* FirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctions.swift; sourceTree = "<group>"; };
 		87E608712AFBED8B009DCEDB /* DonationBoxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationBoxesView.swift; sourceTree = "<group>"; };
 		87F08BD02ACA3A2600B1395D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,13 +72,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87DD80BC2AC7362C00FE8CCE /* FirebaseAnalyticsSwift in Frameworks */,
 				87DD80C02AC7362C00FE8CCE /* FirebaseFirestore in Frameworks */,
 				876170522AC749A20021BBFE /* CodeScanner in Frameworks */,
 				87F08BD92ACA7F9700B1395D /* FirebaseFirestoreSwift in Frameworks */,
 				87DD80BE2AC7362C00FE8CCE /* FirebaseAuth in Frameworks */,
 				87DD80C22AC7362C00FE8CCE /* FirebaseStorage in Frameworks */,
-				87DD80BA2AC7362C00FE8CCE /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +111,8 @@
 		876F69122AC26F3400E7CB01 /* Toys Handler */ = {
 			isa = PBXGroup;
 			children = (
+				8759D0EC2BFFFE32002F510C /* Toys-Handler-Info.plist */,
 				874D291F2ACDBD96003BFDB1 /* GoogleService-Info.plist */,
-				87DD80812AC72AE000FE8CCE /* Toys-Handler-Info.plist */,
 				876F69132AC26F3400E7CB01 /* Toys_HandlerApp.swift */,
 				876F69152AC26F3400E7CB01 /* Login.swift */,
 				87D0DBD72AC2764700F0A9AD /* Register.swift */,
@@ -168,6 +166,7 @@
 				87F08BD62ACA7DCA00B1395D /* DatabaseObjects.swift */,
 				875E87852AF32F8600A1638F /* UserAuth.swift */,
 				875141B22AF33E1500917323 /* User.swift */,
+				872570BF2C096F10008694C1 /* GeneralFunctions.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -189,8 +188,6 @@
 			);
 			name = "Toys Handler";
 			packageProductDependencies = (
-				87DD80B92AC7362C00FE8CCE /* FirebaseAnalytics */,
-				87DD80BB2AC7362C00FE8CCE /* FirebaseAnalyticsSwift */,
 				87DD80BD2AC7362C00FE8CCE /* FirebaseAuth */,
 				87DD80BF2AC7362C00FE8CCE /* FirebaseFirestore */,
 				87DD80C12AC7362C00FE8CCE /* FirebaseStorage */,
@@ -276,6 +273,7 @@
 				87C403AB2AD6093B000E829D /* ItemView.swift in Sources */,
 				8701E59C2AD76A5900B1EC92 /* CreatePopup.swift in Sources */,
 				87F08BD72ACA7DCA00B1395D /* DatabaseObjects.swift in Sources */,
+				872570C02C096F10008694C1 /* GeneralFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -391,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -411,8 +409,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Toys Handler/Preview Content\"";
 				DEVELOPMENT_TEAM = 8HNSHY65KA;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Toys-Handler-Info.plist";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/rohitraju/dev/Toys Handler/Toys Handler/Toys-Handler-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Toys For Texans";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera used to scan barcodes";
@@ -426,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toysfortexans.Toys-Handler";
 				PRODUCT_NAME = "Toys For Texans";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -448,8 +446,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Toys Handler/Preview Content\"";
 				DEVELOPMENT_TEAM = 8HNSHY65KA;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Toys-Handler-Info.plist";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/rohitraju/dev/Toys Handler/Toys Handler/Toys-Handler-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Toys For Texans";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera used to scan barcodes";
@@ -463,7 +461,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.toysfortexans.Toys-Handler";
 				PRODUCT_NAME = "Toys For Texans";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -522,16 +520,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 87D0DBD42AC2741E00F0A9AD /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
-		};
-		87DD80B92AC7362C00FE8CCE /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87DD80822AC735F100FE8CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		87DD80BB2AC7362C00FE8CCE /* FirebaseAnalyticsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87DD80822AC735F100FE8CCE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsSwift;
 		};
 		87DD80BD2AC7362C00FE8CCE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

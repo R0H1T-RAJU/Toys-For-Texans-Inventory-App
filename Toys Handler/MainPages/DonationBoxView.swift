@@ -34,6 +34,12 @@ struct DonationBoxView: View {
                         Text(String(format: "$%.2f", boxesHandler.donationBoxes[index].TotalPrice))
                             .foregroundStyle(.gray)
                     }
+                    HStack {
+                        Text("Total Items")
+                        Spacer()
+                        Text(String(getTotalItems(items: filteredItems)))
+                            .foregroundStyle(.gray)
+                    }
                 }
                 
                 Section(header: Text("Items")) {

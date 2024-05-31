@@ -23,19 +23,19 @@ struct MainPageHandler: View {
                     .tabItem {
                         Label("Donation Boxes", systemImage: "archivebox.fill")
                     }
-                Text("")
-                    .tabItem {
-                        Label("Requests", systemImage: "list.clipboard.fill")
-                    }
+//                Text("")
+//                    .tabItem {
+//                        Label("Requests", systemImage: "list.clipboard.fill")
+//                    }
                 TransactionsView()
                     .tabItem {
                         Label("Transactions", systemImage: "chart.bar.doc.horizontal.fill")
                     }
                 
-//                ProfileView()
-//                    .tabItem {
-//                        Label("Account", systemImage: "person.circle.fill")
-//                    }
+                ProfileView()
+                    .tabItem {
+                        Label("Account", systemImage: "person.circle.fill")
+                    }
             }
         } .navigationBarHidden(true)
             .task {

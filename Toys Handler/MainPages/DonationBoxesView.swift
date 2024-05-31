@@ -49,7 +49,7 @@ struct DonationBoxesView: View {
 
     var body: some View {
         NavigationStack {
-            List {
+            List() {
                 CreateBox()
                 ForEach(filteredBoxes, id: \.id) {donationBox in
                     NavigationLink(destination: DonationBoxView(index: boxesHandler.donationBoxes.firstIndex(of: donationBox)!)) {

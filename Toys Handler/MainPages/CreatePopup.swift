@@ -74,18 +74,21 @@ struct CreatePopup: View {
                 
                 Button("Create", role: .cancel) {
                     Task {
-                        if quantity == "" {quantity = "1"}
-                        if price == "" {price = "0.00"}
-                        if (itemsHandler.items.contains{$0.Name.lowercased() == name.lowercased()}) {
-                            let duplicateItem = itemsHandler.items.first{$0.Name == name}
-                            firebaseFunctions.incrQuantityAvailable(id: duplicateItem!.id, amount: Int(quantity)!)
+                        let nameValidation = name.rangeOfCharacter(from: NSCharacterSet.letters)
+                        if (nameValidation != nil) {
+                            if quantity == "" {quantity = "1"}
+                            if price == "" {price = "0.00"}
+                            if (itemsHandler.items.contains{$0.Name.lowercased() == name.lowercased()} && itemsHandler.items.first{$0.Name == name}?.DonationBoxId == donationBox.id) {
+                                let duplicateItem = itemsHandler.items.first{$0.Name == name}
+                                firebaseFunctions.incrQuantityAvailable(id: duplicateItem!.id, amount: Int(quantity)!)
+                            }
+                            else {
+                                let newItem = NewItem(Name: name, Price: price, QuantityAvailable: Int(quantity) ?? 1, DonationBoxName: donationBox.Name, DonationBoxId: donationBox.id)
+                                firebaseFunctions.addItem(item: newItem)
+                            }
+                            SuperItemsHandler.standard.items = try! await firebaseFunctions.getItems()
+                            SuperItemsHandler.standard.staticItems = SuperItemsHandler.standard.items
                         }
-                        else {
-                            let newItem = NewItem(Name: name, Price: price, QuantityAvailable: Int(quantity) ?? 1, DonationBoxName: donationBox.Name, DonationBoxId: donationBox.id)
-                            firebaseFunctions.addItem(item: newItem)
-                        }
-                        SuperItemsHandler.standard.items = try! await firebaseFunctions.getItems()
-                        SuperItemsHandler.standard.staticItems = SuperItemsHandler.standard.items
                         clearVariables()
                     }
                 }

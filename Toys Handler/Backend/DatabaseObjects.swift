@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 final class TransactionsHandler: ObservableObject {
     static let standard = TransactionsHandler()
     @Published var transactions: [Transaction] = []
@@ -38,7 +37,7 @@ final class DonationBoxesHandler: ObservableObject {
         staticDonationBoxes.remove(at: index)
     }
     
-    func getBoxes() async throws {
+    @MainActor func getBoxes() async throws {
         let donationBoxesList = try! await firebaseFunctions.getDonationBoxes()
         donationBoxes = donationBoxesList
         staticDonationBoxes = donationBoxesList
@@ -63,7 +62,7 @@ final class SuperItemsHandler: ObservableObject {
         staticItems.remove(at: index)
     }
     
-    func getItems() async throws {
+    @MainActor func getItems() async throws {
         let itemList = try! await firebaseFunctions.getItems()
         items = itemList
         staticItems = itemList
