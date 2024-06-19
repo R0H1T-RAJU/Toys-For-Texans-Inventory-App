@@ -48,7 +48,7 @@ struct ItemView: View {
                         }
                     } else {
                         Picker("Donation Box", selection: $itemsHandler.items[index].DonationBoxId) {
-                            ForEach(boxesHandler.donationBoxes, id:\.id) {donationBox in
+                            ForEach(boxesHandler.donationBoxes.sorted{sortBoxes($0.Name, $1.Name)}, id:\.id) {donationBox in
                                 Text("\(donationBox.Name)")
                             }
                         }

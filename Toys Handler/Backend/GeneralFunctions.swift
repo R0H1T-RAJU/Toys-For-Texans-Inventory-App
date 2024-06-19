@@ -38,3 +38,17 @@ func getTotalPrice(items: [Item]) -> Double {
     }
     return totalPrice
 }
+
+func sortBoxes(_ box1: String, _ box2: String) -> Bool {
+    let number1 = extractNumber(box1)
+    let number2 = extractNumber(box2)
+    
+    return number1 < number2
+}
+
+func extractNumber(_ str: String) -> Int {
+    let numberString = str.components(separatedBy: CharacterSet.decimalDigits.inverted)
+        .joined()
+    
+    return Int(numberString) ?? 0
+}

@@ -120,4 +120,3 @@ struct NewDonationBox: Codable {
     var Date: String
     var TotalPrice: Double = 0.00
 }
-

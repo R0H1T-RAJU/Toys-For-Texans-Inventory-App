@@ -8,25 +8,14 @@
 import SwiftUI
 
 struct DonationBoxesView: View {
-    func sortBoxes(_ box1: String, _ box2: String) -> Bool {
-        let number1 = extractNumber(box1)
-        let number2 = extractNumber(box2)
-        
-        return number1 < number2
-    }
-
-    func extractNumber(_ str: String) -> Int {
-        let numberString = str.components(separatedBy: CharacterSet.decimalDigits.inverted)
-            .joined()
-        
-        return Int(numberString) ?? 0
-    }
-    
     @ObservedObject var boxesHandler: DonationBoxesHandler = .standard
     
     var sortedBoxes: [DonationBox] {
-        if sortTerm == .name {
-            return boxesHandler.donationBoxes.sorted {self.sortBoxes($0.Name, $1.Name)}
+        if sortTerm == .nameAscending {
+            return boxesHandler.donationBoxes.sorted {sortBoxes($0.Name, $1.Name)}
+        }
+        if sortTerm == .nameDescending {
+            return boxesHandler.donationBoxes.sorted {sortBoxes($1.Name, $0.Name)}
         }
         if sortTerm == .price {
             return boxesHandler.donationBoxes.sorted {$0.TotalPrice > $1.TotalPrice}
@@ -42,10 +31,10 @@ struct DonationBoxesView: View {
         searchTerm.isEmpty ? sortedBoxes : sortedBoxes.filter { $0.Name.lowercased().contains(searchTerm.lowercased()) }
     }
     enum Sort: String, CaseIterable, Identifiable {
-        case name, price, dateRecieved
+        case nameAscending, nameDescending, price, dateRecieved
         var id: Self { self }
     }
-    @State var sortTerm: Sort = .name
+    @State var sortTerm: Sort = .nameAscending
 
     var body: some View {
         NavigationStack {
@@ -72,7 +61,8 @@ struct DonationBoxesView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Menu {
                         Picker("", selection: $sortTerm) {
-                            Text("Name").tag(Sort.name)
+                            Text("Name Ascending").tag(Sort.nameAscending)
+                            Text("Name Descending").tag(Sort.nameDescending)
                             Text("Total Price").tag(Sort.price)
                             Text("Date Recieved").tag(Sort.dateRecieved)
                         }
