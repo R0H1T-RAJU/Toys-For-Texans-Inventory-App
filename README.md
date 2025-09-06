@@ -9,7 +9,6 @@ The Toys For Texans Inventory Handler is a Swift-based application that is built
   <li>Add items to each box with details (name, quantity, price)</li>
   <li>View all inventory in a intuitive list format</li>
   <li>Keep track of what’s available for distribution</li>
-  <li></li>
 </ul>
 
 <h3>Built With</h3>  
